@@ -38,13 +38,13 @@ public class SwingPaintDemo3 extends JPanel{
 	}
 	
 	private int squareX = 458;
-    private int squareY = 10;
+	private int squareY = 10;
 	private int squareX2 = 498;
-    private int squareY2 = 10;
-    private int squareW = 20;
-    private int squareH = 20;
+	private int squareY2 = 10;
+	private int squareW = 20;
+	private int squareH = 20;
 	JLabel jLabel = null;
-    JLabel jLabel2 = null;
+	JLabel jLabel2 = null;
 	int aa=0;
 	int bb=0;
 	int cc=0;
@@ -132,34 +132,34 @@ public class SwingPaintDemo3 extends JPanel{
 		
     	JFrame jf=new JFrame();
     	jf.setSize(1000,780);
-    	jf.setTitle("Â²³æµeªO");
+    	jf.setTitle("ç°¡å–®ç•«æ¿");
     	jf.setDefaultCloseOperation(3);
     	jf.setLocationRelativeTo(null);
     	jf.setLayout(new BorderLayout());
     	
-    	//¨Ò¶µ¤Æ¨Æ¥óºÊÅ¥Ãş
+    	//ä¾‹é …åŒ–äº‹ä»¶ç›£è½é¡
     	DrawListener dl=new DrawListener(this);
     	
-        //¹ê²{¤¤¶¡­±ªO
+        //å¯¦ç¾ä¸­é–“é¢æ¿
     	this.setBackground(Color.WHITE);
     	jf.add(this,BorderLayout.CENTER);
     	
 		 
-    	//¹ê²{¤W­±­±ªO
+    	//å¯¦ç¾ä¸Šé¢é¢æ¿
     	JPanel ShapePanel=new JPanel();
     	// ShapePanel.setBackground(Color.black);
     	ShapePanel.setLayout(new FlowLayout(FlowLayout.CENTER));
     	ShapePanel.setBackground(new Color(255,85,85));
-    	String [] Shape={"ª½½u","¦±½u","¶ê","¼Qºj","¾ó¥ÖÀ¿","¯x§Î","¾ò¶ê","¶ê¨¤¯x§Î","©·½u","¦hÃä§Î","¤T¨¤§Î","¥ßÅé¶ê"};
+    	String [] Shape={"ç›´ç·š","æ›²ç·š","åœ“","å™´æ§","æ©¡çš®æ“¦","çŸ©å½¢","æ©¢åœ“","åœ“è§’çŸ©å½¢","å¼§ç·š","å¤šé‚Šå½¢","ä¸‰è§’å½¢","ç«‹é«”åœ“"};
     	for(int i=0;i<Shape.length;i++){
     		JButton button=new JButton(Shape[i]);
     		// button.setBackground(Color.WHITE);
-    		button.addActionListener(dl);    //·s¼W¨Æ¥óºÊÅ¥¾÷¨î
+    		button.addActionListener(dl);    //æ–°å¢äº‹ä»¶ç›£è½æ©Ÿåˆ¶
     		ShapePanel.add(button);
     	}
     	jf.add(ShapePanel,BorderLayout.NORTH);
     			
-    	//¹ê²{ÃC¦â­±ªO
+    	//å¯¦ç¾é¡è‰²é¢æ¿
     	JPanel ColorPanel=new JPanel();
     	ColorPanel.setBackground(Color.black);
     	ColorPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -167,7 +167,7 @@ public class SwingPaintDemo3 extends JPanel{
     	Color [] color={Color.BLACK,Color.blue,Color.white,Color.gray,Color.red,Color.CYAN,Color.green,Color.darkGray,Color.pink};
     	for(int i=0;i<color.length;i++){
     		JButton button=new JButton();
-    		button.addActionListener(dl);   //·s¼W¨Æ¥óºÊÅ¥¾÷¨î
+    		button.addActionListener(dl);   //æ–°å¢äº‹ä»¶ç›£è½æ©Ÿåˆ¶
     		button.setPreferredSize(new Dimension(30,30));
     		button.setBackground(color[i]);
     		ColorPanel.add(button);
@@ -201,7 +201,7 @@ class DrawListener extends MouseAdapter implements ActionListener{
 	private Graphics2D g;
 	private SwingPaintDemo3 df;
 	private boolean flag=false;
-	String shape="¾ó¥ÖÀ¿";
+	String shape="æ©¡çš®æ“¦";
 	Color color;
 	private int [] arrx=new int[4];
 	private int [] arry=new int[4];
@@ -210,7 +210,7 @@ class DrawListener extends MouseAdapter implements ActionListener{
 	DrawListener(SwingPaintDemo3 d){
 		df=d;
 	}
-	//Àò¨ú§Îª¬©MÃC¦â
+	//ç²å–å½¢ç‹€å’Œé¡è‰²
 	public void actionPerformed(ActionEvent e){
 	    if(e.getActionCommand().equals("")){
 	    	JButton button = (JButton) e.getSource();  
@@ -223,7 +223,7 @@ class DrawListener extends MouseAdapter implements ActionListener{
 	    }
 	}
 
-	//¹ê²{µeµ§
+	//å¯¦ç¾ç•«ç­†
 	 public void mousePressed(MouseEvent e) {
 		 g=(Graphics2D) df.getGraphics();
 		 g.setColor(color);
@@ -235,30 +235,30 @@ class DrawListener extends MouseAdapter implements ActionListener{
 	 public void mouseReleased(MouseEvent e) {
 			x2 = e.getX();
 			y2 = e.getY();
-			if (shape.equals("ª½½u")) {
+			if (shape.equals("ç›´ç·š")) {
 				g.drawLine(x1, y1, x2, y2);
-			}else if(shape.equals("©·½u")){
+			}else if(shape.equals("å¼§ç·š")){
 				 g.drawArc(x1, y1, Math.abs(x2-x1), Math.abs(y2-y1), 0, 180);
-			}else if(shape.equals("¦hÃä§Î")&&!flag){
+			}else if(shape.equals("å¤šé‚Šå½¢")&&!flag){
 				g.drawLine(x1, y1, x2, y2);
 				newx1=x1;
 				newy1=y1;
 				newx2=x2;
 				newy2=y2;
 				flag=true;
-			}else  if(shape.equals("¶ê")){
+			}else  if(shape.equals("åœ“")){
 				 g.drawOval(x1, y1, Math.abs(x2-x1), Math.abs(y2-y1));
-			 }else if(shape.equals("¯x§Î")){
+			 }else if(shape.equals("çŸ©å½¢")){
 				 g.drawRect(x1, y1, Math.abs(x2-x1), Math.abs(y2-y1));
-			 }else if(shape.equals("¶ê¨¤¯x§Î")){
+			 }else if(shape.equals("åœ“è§’çŸ©å½¢")){
 				 g.drawRoundRect(x1, y1, Math.abs(x2-x1), Math.abs(y2-y1),2,10);
-			 }else if(shape.equals("¾ò¶ê")){
+			 }else if(shape.equals("æ©¢åœ“")){
 				 g.drawOval(x1, y1, Math.abs(x2-x1), Math.abs(y2-y1));
 			 }
 	 }
  
 	 public void mouseClicked(MouseEvent e) {
-		 if(shape.equals("¦hÃä§Î")&&flag){
+		 if(shape.equals("å¤šé‚Šå½¢")&&flag){
 			 x2=e.getX();
 			 y2=e.getY();
 			 if(e.getClickCount()==2){
@@ -269,14 +269,14 @@ class DrawListener extends MouseAdapter implements ActionListener{
 			 
 			 newx2=x2;
 			 newy2=y2;
-		   }else if(shape.equals("¥ßÅé¶ê")){
+		   }else if(shape.equals("ç«‹é«”åœ“")){
 //			   double a=-2,b=-2,c=-1.2,d=2;
 			   double a=1.40,b=1.56,c=1.40,d=-6.56;
 			   double x = 0,xo=0;
 			   double y = 0,yo=0;
 			   Color [] Col={Color.BLUE,Color.cyan,Color.green,Color.magenta,Color.red,Color.yellow};
 			   for(int i=0;i<=90000;i++){
-				  Random r=new Random();      //¼W¥[ÃC¦â
+				  Random r=new Random();      //å¢åŠ é¡è‰²
 				  int R=r.nextInt(Col.length);
 				  g.setColor(Col[R]);
 				  
@@ -292,13 +292,13 @@ class DrawListener extends MouseAdapter implements ActionListener{
 				  xo=x;
 				  yo=y;
 			}  
-		}else if(shape.equals("¤T¨¤§Î")){
+		}else if(shape.equals("ä¸‰è§’å½¢")){
 			double a=-2,b=-2,c=-1.2,d=2;
 			double x = 0,xo=0;
 			double y = 0,yo=0;
 			Color [] Col={Color.BLUE,Color.cyan,Color.green,Color.magenta,Color.red,Color.yellow};
 			for(int i=0;i<=90000;i++){
-				Random r=new Random();      //¼W¥[ÃC¦â
+				Random r=new Random();      //å¢åŠ é¡è‰²
 				int R=r.nextInt(Col.length);
 				g.setColor(Col[R]);  
     			x=Math.sin(a*yo)-Math.cos(b*xo);
@@ -316,13 +316,13 @@ class DrawListener extends MouseAdapter implements ActionListener{
 	 public void mouseDragged(MouseEvent e) {
 			x2 = e.getX();
 			y2 = e.getY();
-			if (shape.equals("¦±½u")) {
+			if (shape.equals("æ›²ç·š")) {
 //				g.setStroke(new BasicStroke(10));			
 //				g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 				g.drawLine(x1, y1, x2, y2);
 				x1 = x2;
 				y1 = y2;
-			}else if(shape.equals("¾ó¥ÖÀ¿")){
+			}else if(shape.equals("æ©¡çš®æ“¦")){
 				g.setStroke(new BasicStroke(80));							
 				g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 				// if(cc=0)
@@ -334,8 +334,8 @@ class DrawListener extends MouseAdapter implements ActionListener{
 				// g.drawLine(x1, y1, x2, y2);
 				x1 = x2;
 				y1 = y2;
-			}else if(shape.equals("¼Qºj")){
-			//	g.setStroke(new BasicStroke(2));	  //¤£¥Î¥[²Ê						
+			}else if(shape.equals("å™´æ§")){
+			//	g.setStroke(new BasicStroke(2));	  //ä¸ç”¨åŠ ç²—						
 			//	g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 				for(int k=0;k<20;k++){
 					Random i=new Random();       
